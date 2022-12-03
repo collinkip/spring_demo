@@ -29,6 +29,49 @@ result
     }
 ]
 ```
+
+## Docker Postgres
+
+### create an image
+```dockerfile
+docker run --name postgresdb -e POSTGRES_PASSWORD=password -d -p 5432:5432 postgres:alpine
+```
+
+### Display ports
+
+```dockerfile
+docker port dockerimageid/name
+```
+
+### Show currently running images
+```dockerfile
+docker ps
+```
+### To bash into the container
+```dockerfile
+docker exec -it dockerimageid bin/bash
+```
+### run postgresql
+```bash
+psql
+
+psql -U password
+```
+
+```bash
+
+#list all databases
+\l 
+# Enter into  a db
+\c databases
+# Show all relationships
+\d
+# Describe a database/Relationships
+\dt
+# Enter into a table
+\d person
+#
+```
 ### Reference Documentation
 
 For further reference, please consider the following sections:
