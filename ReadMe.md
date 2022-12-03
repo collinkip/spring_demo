@@ -1,6 +1,6 @@
 # Getting Started
 
-### Endpoints
+## Endpoints
 
 Post localhost:8080/api/v1/person
 ```json
