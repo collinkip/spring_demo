@@ -4,18 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.UUID;
 
-public class Person {
-    private final UUID id;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    private  final String name;
+public record Person(UUID id, String name) {
 
     public Person(@JsonProperty("id") UUID id,
                   @JsonProperty("name") String name) {

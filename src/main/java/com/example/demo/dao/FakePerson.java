@@ -10,10 +10,10 @@ import java.util.UUID;
 
 @Repository("fakeDao")
 public class FakePerson implements PersonDao{
-    private static List<Person> DB= new ArrayList<>();
+    private static final List<Person> DB= new ArrayList<>();
     @Override
     public int insertPerson(UUID id, Person person) {
-        DB.add(new Person(id,person.getName()));
+        DB.add(new Person(id,person.name()));
         return 1;
     }
 
@@ -24,24 +24,30 @@ public class FakePerson implements PersonDao{
     }
 
     @Override
-    public int deletePersonById(UUID id) {
+    public void deletePersonById(UUID id) {
         Optional<Person> personMayBe = selectPersonById(id);
         if (personMayBe.isEmpty()) {
-            return 0;
+            return;
         }
         DB.remove(personMayBe.get());
-        return 1;
 
     }
 
     @Override
-    public int updatePersonById(UUID id, Person person) {
-        return 0;
+    public void updatePersonById(UUID id, Person update) {
+        selectPersonById(id).map(person -> {
+            int indexOfPersonToUpdate = DB.indexOf(person);
+            if (indexOfPersonToUpdate >= 0) {
+                DB.set(indexOfPersonToUpdate, new Person(id, update.name()));
+                return 1;
+            }
+            return 0;
+        });
     }
 
     @Override
     public Optional<Person> selectPersonById(UUID id) {
-        return DB.stream().filter(person -> person.getId().equals(id)).findFirst();
+        return DB.stream().filter(person -> person.id().equals(id)).findFirst();
     }
 
 

@@ -17,8 +17,8 @@ public class PersonService {
     public PersonService(@Qualifier("fakeDao")PersonDao personDao){
         this.personDao=personDao;
     }
-    public int addPerson(Person person){
-        return personDao.insertPerson(person);
+    public void addPerson(Person person){
+        personDao.insertPerson(person);
     }
     public List<Person> getAllPeople(){
 
@@ -26,5 +26,11 @@ public class PersonService {
     }
     public Optional<Person> getPersonById(UUID id){
         return personDao.selectPersonById(id);
+    }
+    public void deletePerson(UUID id){
+        personDao.deletePersonById(id);
+    }
+    public void updatePersonById(UUID id, Person person){
+        personDao.updatePersonById(id, person);
     }
 }
