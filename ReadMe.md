@@ -1,5 +1,15 @@
 # Getting Started
-new xchange
+
+### Endpoints
+
+Post localhost:8080/api/v1/person
+```json
+{
+    "name":"Collins Mugo"
+}
+```
+
+
 ### Reference Documentation
 
 For further reference, please consider the following sections:
