@@ -31,6 +31,7 @@ public class FakePerson implements PersonDao{
         }
         DB.remove(personMayBe.get());
         return 1;
+
     }
 
     @Override
