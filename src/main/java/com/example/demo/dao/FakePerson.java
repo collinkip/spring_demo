@@ -12,9 +12,8 @@ import java.util.UUID;
 public class FakePerson implements PersonDao{
     private static final List<Person> DB= new ArrayList<>();
     @Override
-    public int insertPerson(UUID id, Person person) {
+    public void insertPerson(UUID id, Person person) {
         DB.add(new Person(id,person.name()));
-        return 1;
     }
 
 
