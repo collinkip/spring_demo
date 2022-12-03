@@ -11,4 +11,14 @@ public record Person(UUID id, String name) {
         this.id = id;
         this.name = name;
     }
+
+    @Override
+    public UUID id() {
+        return id;
+    }
+
+    @Override
+    public String name() {
+        return name;
+    }
 }
