@@ -1,15 +1,34 @@
 # Getting Started
 
 ## Endpoints
-
-Post localhost:8080/api/v1/person
-```json
+### Post a single Person
+Method: Post localhost:8080/api/v1/person
+```yaml
 {
-    "name":"Collins Mugo"
+    "name": "Nelson Mandela"
 }
 ```
+###  Get  all people posted
+Method:
+get localhost:8080/api/person
 
-
+result
+```javascript
+[
+    {
+        "id": "da8d2adc-1a61-4910-8d12-1d5d1a44fff7",
+        "name": "John Hammond"
+    },
+    {
+        "id": "223bc3d2-687b-4ffe-a2b6-148669901104",
+        "name": "Nelso Mandela"
+    },
+    {
+        "id": "69b821d0-8777-4214-8f8e-a5f4dfc17755",
+        "name": "Anna Brenda "
+    }
+]
+```
 ### Reference Documentation
 
 For further reference, please consider the following sections:
